@@ -52,7 +52,6 @@ public class EmployeeController {
                 
         HttpHeaders headers = new HttpHeaders();
         headers.setLocation(builder.path("/employee/{id}").buildAndExpand(employee.getId()).toUri());
-        
         return new ResponseEntity<Void>(headers, HttpStatus.CREATED);
 	}
 	
