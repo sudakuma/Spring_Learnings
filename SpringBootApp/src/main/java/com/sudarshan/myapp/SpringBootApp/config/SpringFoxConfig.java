@@ -16,7 +16,8 @@ public class SpringFoxConfig {
 	public Docket apiDocket(){
 		return new Docket(DocumentationType.SWAGGER_2)
 				   .select()
-				   .apis(RequestHandlerSelectors.any())
+				   .apis(RequestHandlerSelectors.basePackage("com.sudarshan.myapp.SpringBootApp"))
+				   //.apis(RequestHandlerSelectors.any()) -- For all the endpoints
 				   .paths(PathSelectors.any())
 				   .build();
 	}
