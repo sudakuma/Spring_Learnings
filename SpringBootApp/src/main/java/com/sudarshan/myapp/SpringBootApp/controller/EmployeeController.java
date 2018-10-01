@@ -63,4 +63,15 @@ public class EmployeeController {
         return new ResponseEntity<Void>(headers, HttpStatus.CREATED);
 	}
 	
+	@PostMapping(value="/delete/{employeeId}")
+	@ApiOperation("Delete Employee.")
+	public ResponseEntity<Void> deleteEmployee(@PathVariable("employeeId") int employeeId,UriComponentsBuilder builder) {
+        
+		employeeService.deleteEmployee(employeeId);
+		
+		HttpHeaders headers = new HttpHeaders();
+		headers.setLocation(builder.path("/employee/{id}").buildAndExpand(employeeId).toUri());        
+        return new ResponseEntity<Void>(headers, HttpStatus.CREATED);
+	}
+	
 }
