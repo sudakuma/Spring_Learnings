@@ -1,13 +1,17 @@
 package com.sudarshan.myapp.SpringBootApp.model;
 
 import java.io.Serializable;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
 
 /**
  * 
@@ -21,8 +25,8 @@ public class Employee implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
-	@Column(name="id")
+    @GeneratedValue
+    @Column(name="id")
 	private long id;
 	
 	@Column(name="name")
@@ -37,6 +41,28 @@ public class Employee implements Serializable{
 	@Column(name="salary")
 	private int salary;
 	
+	@OneToMany(cascade = CascadeType.ALL)
+	@JoinColumn(name = "emp_id", nullable = false, updatable = false)
+	private List<Address> listOfAddress;
+	
+	
+	public Employee()
+    {
+        super();
+    }
+	
+	/**
+	 * @return the listOfAddress
+	 */
+	public List<Address> getListOfAddress() {
+		return listOfAddress;
+	}
+	/**
+	 * @param listOfAddress the listOfAddress to set
+	 */
+	public void setListOfAddress(List<Address> listOfAddress) {
+		this.listOfAddress = listOfAddress;
+	}
 	/**
 	 * @return the id
 	 */
