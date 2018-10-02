@@ -1,8 +1,5 @@
 package com.sudarshan.myapp.SpringBootApp.controller;
 
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
-
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +16,9 @@ import org.springframework.web.util.UriComponentsBuilder;
 
 import com.sudarshan.myapp.SpringBootApp.model.Employee;
 import com.sudarshan.myapp.SpringBootApp.service.EmployeeService;
+
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 
 @RestController
 @RequestMapping(value="/employeservice")

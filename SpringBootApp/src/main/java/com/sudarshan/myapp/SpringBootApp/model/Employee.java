@@ -12,6 +12,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 
 /**
  * 
@@ -41,6 +43,7 @@ public class Employee implements Serializable{
 	@Column(name="salary")
 	private int salary;
 	
+	@JsonManagedReference
 	@OneToMany(cascade = CascadeType.ALL)
 	@JoinColumn(name = "emp_id", nullable = false, updatable = false)
 	private List<Address> listOfAddress;
